@@ -65,5 +65,60 @@ interface comedian {
 }
 
 interface standupcomedian extends comedian {
-    
+    routine: string
 }
+
+function isstandupcomedian(value: comedian): value is standupcomedian {
+    return 'routine' in value
+}
+
+function workwithcomedian(value: comedian) {
+    if (isstandupcomedian(value)) {
+        console.log(value.routine)
+    }
+    // console.log(value.routine)
+}
+
+function islongstring(input: string | undefined): input is string {
+    return !!(input && input.length >= 7)
+}
+
+function workwithtext(text: string | undefined) {
+    if (islongstring(text)) {
+        console.log("long text: ", text.length)
+    } else {
+        // console.log("short text: ", text?.length)
+    }
+}
+
+interface Ratings {
+    audience: number
+    critics: number
+    // key: number
+}
+
+// interface ratings {
+//     audience: string
+//     critics: string
+// }
+
+// function getrating(Ratings: string, key: string): number {
+//     return ratings[key]
+// }
+
+// const ratings: Ratings = { audience: 66, critics: 84 }
+
+// getrating(ratings, "audience")
+
+// getrating(ratings, "not valid")
+
+function getCountKeyof(ratings: Ratings, key:"audience" | "critics"): number {
+    return ratings[key]
+}
+
+const ratings: Ratings ={ audience: 66, critics: 54}
+
+console.log(getCountKeyof(ratings, "audience"))
+
+console.log(getCountKeyof(ratings, "critics"))
+
