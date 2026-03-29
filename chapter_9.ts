@@ -122,3 +122,38 @@ console.log(getCountKeyof(ratings, "audience"))
 
 console.log(getCountKeyof(ratings, "critics"))
 
+// typeof operator
+
+const original = {
+    medium: "Movie",
+    title: "Mean girls"
+}
+
+let adaptation: typeof original
+
+// if (Math.random() > 0.5) {
+//     adaptation = { ...original, medium: "play"}
+// } else {
+//     adaptation = { ...original, medium: 2}
+// }
+
+
+const ratings1 = {
+    imdb: 5.4,
+    metacritic: 82
+}
+
+// console.log(ratings1)
+
+function logRating(key: keyof typeof ratings1) {
+    console.log(ratings1[key])
+}
+
+logRating("imdb")
+
+logRating("metacritic")
+
+// logRating("invalid")
+
+// type assertions
+
