@@ -171,3 +171,38 @@ const rawData1 = `["grace", "frankie"]`
 
 console.log(JSON.parse(rawData1))
 
+let maybeDate = Math.random() > 0.5 ? undefined : new Date()
+
+maybeDate as Date
+
+console.log(maybeDate)
+
+// non null assertions
+
+const seasonCounts = new Map([
+    ["I Love Lucy", 6],
+    ["the golden girls", 7],
+])
+
+const maybeValue = seasonCounts.get("I Love Lucy")
+
+// console.log(maybeValue.toLowerCase())
+
+const knownValue = seasonCounts.get("I Love Lucy")!
+
+// console.log(knownValue.toUpperCase())
+
+// type assertion caveats
+
+const seasonCounts1 = new Map([
+    ["Broad City", 5],
+    ["Community", 6],
+])
+
+const knownValue1 = seasonCounts1.get("I Love Lucy")!
+
+// console.log(knownValue1.toUpperCase())
+// no runtime error
+
+// assertions versus declarations
+
