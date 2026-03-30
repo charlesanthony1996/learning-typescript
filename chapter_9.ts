@@ -157,3 +157,17 @@ logRating("metacritic")
 
 // type assertions
 
+const rawData = `["grace", "frankie"]`
+
+console.log(JSON.parse(rawData))
+
+JSON.parse(rawData) as string[]
+
+JSON.parse(rawData) as [string, string]
+
+console.log(JSON.parse(rawData) as `['grace', 'frankie']`)
+
+const rawData1 = `["grace", "frankie"]`
+
+console.log(JSON.parse(rawData1))
+
