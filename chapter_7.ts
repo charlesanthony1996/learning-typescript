@@ -84,3 +84,7 @@ console.log(hasBoth.method())
 
 // using the optional modifier on these two in one now
 
+interface OptionalReadonlyFunctions {
+    optionalProperty?: () =>  string
+    optionalMethod?(): string
+}
