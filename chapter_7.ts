@@ -66,3 +66,21 @@ const pageIsh = {
 
 
 // functions and methods
+
+interface hasbothFunctiontypes {
+    property: () => string,
+    method(): string
+}
+
+const hasBoth: hasbothFunctiontypes = {
+    property: () => "",
+    method() {
+        return "its charles here"
+    }
+}
+
+console.log(hasBoth.property())
+console.log(hasBoth.method())
+
+// using the optional modifier on these two in one now
+
