@@ -42,3 +42,27 @@ const missing: Book = {
     pages: 80
 }
 
+// read only properties
+
+interface Page {
+    readonly text: string
+}
+
+function read(page: Page) {
+    console.log(page.text)
+
+    // reading the text property doesnt attempt to modify it
+    // page.text += "!"
+}
+
+const pageIsh = {
+    text: "Hello world!"
+}
+
+// an inferred object type with text not a page
+// page.text += "!"
+
+// read(messengerIsh)
+
+
+// functions and methods
