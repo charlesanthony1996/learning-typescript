@@ -4,7 +4,7 @@
 // step 1: convertibleValue
 // this is what exists in the real codebase
 // .normal = the raw backend value
-// 
+// .locale 
 
 
 class ConvertibleValue {
@@ -68,5 +68,10 @@ class ConvertiblePressureValue extends ConvertibleValue {
 type ConvertibleConstructor = new (value?: number) => ConvertibleValue
 
 const Type_To_Convertible: Record<string, ConvertibleConstructor> = {
-
+    'angle': ConvertibleAngleValue,
+    'distance': ConvertibleDistanceValue,
+    'thickness': ConvertibleThicknessValue,
+    'speed': ConvertibleSpeedValue,
+    'pressure': ConvertiblePressureValue
 }
+
