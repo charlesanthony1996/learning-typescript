@@ -114,7 +114,7 @@ const mock_backend_response: FutureStepDto = {
             hidden: false, 
             used: true 
         },
-        
+
     { id: "foldingAngle.compensation",    value: 0.5,   type: "angle",    min: -5,  max: 5,    editable: true,  lock: false,  hidden: false, used: true },
     { id: "backgauge.position0",          value: 120.0, type: "distance", min: 0,   max: 500,  editable: false, lock: false,  hidden: false, used: true },
     { id: "backgauge.compensation",       value: 2.0,   type: "distance", min: -10, max: 10,   editable: true,  lock: false,  hidden: false, used: true },
@@ -124,4 +124,13 @@ const mock_backend_response: FutureStepDto = {
     { id: "clampingpressure.press",       value: 75.0,  type: "pressure", min: 0,   max: 100,  editable: true,  lock: false,  hidden: true,  used: false },
 
     ]
+}
+
+// step 4: internal dynamic model
+// this replaces the step class
+// instead of step.foldingAngle.angle.value
+// you now do: step.fields.get("foldingAngle.angle").value
+
+interface Dynamicfield {
+    
 }
