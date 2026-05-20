@@ -105,6 +105,30 @@ const typedFunctionAlias: FunctionAlias = (input) => input.length
 // type: (input: string) => number
 const typedCallSignature: CallSignature = (input) => input.length
 
+
+
 interface FunctionWithCount {
-    
+    count: number
+    (): void
 }
+
+let hasCallCount: FunctionWithCount
+
+function keepsTrackOfCalls() {
+    keepsTrackOfCalls.count += 1
+    console.log(`Ive been called ${keepsTrackOfCalls.count} times!`)
+}
+
+keepsTrackOfCalls.count = 0
+
+hasCallCount = keepsTrackOfCalls
+
+function doesNotHaveCount() {
+    console.log("no idea")
+}
+
+// hasCallCount = doesNotHaveCount
+
+keepsTrackOfCalls()
+keepsTrackOfCalls()
+
