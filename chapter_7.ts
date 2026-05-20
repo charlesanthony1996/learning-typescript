@@ -89,3 +89,22 @@ interface OptionalReadonlyFunctions {
     optionalMethod?(): string
 }
 
+
+// call signatures
+
+
+type FunctionAlias = (input: string) => number
+
+interface CallSignature {
+    (input: string): number
+}
+
+// type: (input: string) => number
+const typedFunctionAlias: FunctionAlias = (input) => input.length
+
+// type: (input: string) => number
+const typedCallSignature: CallSignature = (input) => input.length
+
+interface FunctionWithCount {
+    
+}
