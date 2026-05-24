@@ -134,3 +134,35 @@ keepsTrackOfCalls()
 
 // index signatures
 
+interface WordCounts {
+    [i: string]: number
+}
+
+const counts: WordCounts = {}
+
+counts.apple = 0
+counts.banana = 1
+
+
+// type is boolean not number
+// counts.cherry = false
+
+interface DatesByName {
+    [i: string]: Date
+}
+
+const publishDates : DatesByName = {
+    // Frankenstein: new Date("1 January 2018")
+    Frankenstein: new Date()
+}
+
+// console.log(publishDates)
+
+publishDates.Frankenstein
+console.log(publishDates.Frankenstein.toString())
+
+publishDates.Beloved
+
+// runtime error
+// console.log(publishDates.Beloved.toString())
+
