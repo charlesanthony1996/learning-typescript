@@ -132,3 +132,5 @@ function doesNotHaveCount() {
 keepsTrackOfCalls()
 keepsTrackOfCalls()
 
+// index signatures
+
