@@ -166,3 +166,4 @@ publishDates.Beloved
 // runtime error
 // console.log(publishDates.Beloved.toString())
 
+// mixing properties and index signatures
