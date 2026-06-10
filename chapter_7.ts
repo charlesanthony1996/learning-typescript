@@ -254,3 +254,49 @@ interface Novella extends Writing {
     pages: Number
 }
 
+let myNovella: Novella = {
+    pages: 195,
+    title: "Ethan Frome"
+}
+
+// let missingPages: Novella = {
+//     title: "The awakening"
+// }
+
+// let extraProperty: Novella = {
+
+// }
+
+// overriden properties
+
+interface WithNullableName {
+    name: string | null
+}
+
+interface WithNonNullableName extends WithNullableName {
+    name: string
+}
+
+// interface WithNumericName extends WithNullableName {
+//     name: number | string
+// }
+
+// extending multiple interfaces
+
+interface GivesNumber {
+    giveNumber(): number
+}
+
+interface GivesString {
+    giveString(): number
+}
+
+interface GivesBothAndEither extends GivesNumber, GivesString {
+    giveEither(): number | string
+}
+
+function useGivesBoth(instance: GivesBothAndEither) {
+    instance.giveEither()
+    instance.giveNumber()
+    instance.giveString()
+}
