@@ -167,3 +167,90 @@ publishDates.Beloved
 // console.log(publishDates.Beloved.toString())
 
 // mixing properties and index signatures
+
+interface HistoricalNovels {
+    Oroonko: number
+    [i: string]: number
+}
+
+const novels: HistoricalNovels = {
+    Outlander: 1991,
+    Oroonko: 1688
+}
+
+// const missingOroonko: HistoricalNovels = {
+//     Outlander: 1991
+// }
+
+interface ChapterStarts {
+    preface: 0
+    [i: string]: number
+}
+
+// const correctPreface: ChapterStarts = {
+//     preface: 1
+// }
+
+// numeric index signatures
+
+// interface MoreNarrowNumbers {
+//     [i: number]: string
+//     [i: number]: string | undefined
+// }
+
+// const mixedNumbersAndStrings: MoreNarrowNumbers = {
+//     0: '',
+//     key1: '',
+//     key2: undefined
+// }
+
+// interface MoreNarrowStrings {
+//     [i: number]: string | undefined
+//     [i: string]: string
+// }
+
+
+interface Novel {
+    author: {
+        name: string
+    }
+    setting: Setting
+}
+
+interface Setting {
+    place: string
+    year: number
+}
+
+let myNovel: Novel
+
+
+myNovel = {
+    author: {
+        name: "Jane austen"
+    },
+    setting: {
+        place: "England",
+        year: 1812
+    }
+}
+
+// myNovel = {
+//     author: {
+//         name: "Emily Bronte"
+//     },
+//     setting: {
+//         place: "West Yorkshire"
+//     }
+// }
+
+// interface Extensions
+
+interface Writing {
+    title: string
+}
+
+interface Novella extends Writing {
+    pages: Number
+}
+
