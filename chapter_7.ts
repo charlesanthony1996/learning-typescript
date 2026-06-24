@@ -336,3 +336,11 @@ interface MergedProperties {
 
 // note that merged instances however define a method with the same name and a different signature.
 // doing so creates a function overload for the method
+
+interface MergedMethods {
+    different(input: string): string
+}
+
+interface MergedMethods {
+    different(input: number): string
+}
