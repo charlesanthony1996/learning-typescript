@@ -300,3 +300,39 @@ function useGivesBoth(instance: GivesBothAndEither) {
     instance.giveNumber()
     instance.giveString()
 }
+
+
+interface Merged {
+    fromFirst: string
+}
+
+interface Merged {
+    fromSecond: number
+}
+
+interface Window {
+    myEnvironmentVariable: string
+}
+
+// window.myEnvironmentVariable
+
+// member naming conflicts
+
+interface MergedProperties {
+    same: (input: boolean) => string
+    different: (input: string) => string
+}
+
+interface MergedProperties {
+    same: (input: boolean) => string
+    different: (input: string) => string
+}
+
+// interface MergedProperties {
+//     same: (input: boolean) => string
+//     // its a different type here. so that gives an error
+//     different: (input: number) => string
+// }
+
+// note that merged instances however define a method with the same name and a different signature.
+// doing so creates a function overload for the method
