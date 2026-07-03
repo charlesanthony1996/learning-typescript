@@ -1,4 +1,4 @@
 export interface Data {
-    version: string
+    version: string;
 }
 

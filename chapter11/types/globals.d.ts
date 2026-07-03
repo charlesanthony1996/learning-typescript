@@ -6,3 +6,5 @@ declare global {
 }
 
 declare const locallyDeclared: Data
+
+// export {}
