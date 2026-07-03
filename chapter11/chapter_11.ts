@@ -22,3 +22,12 @@ declare const myGlobalValue: string
 // }
 
 // logWindowVersion()
+
+
+// global augmentations
+
+declare global {
+
+}
+
+
