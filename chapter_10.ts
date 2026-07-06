@@ -42,13 +42,51 @@ function logWrapper<Input>(callback: (input: Input) => void) {
     }
 } 
 
-logWrapper((input: "string") => {
-    console.log(input.length)
-})
+// console.log(logWrapper((input: "123") => {
+//     return (input: "123")
+
+// }))
+
+// logWrapper((input: "string") => {
+//     console.log(input.length)
+// })
 
 // no input here. so gives an error
 // logWrapper((input) => {
 //     console.log(input.length)
 // })
 
+
+
+
+logWrapper<string>((input) => {
+    console.log(input.length)
+})
+
+const hello_var = logWrapper<string>((input) => {
+    console.log(input.length)
+})
+
+// hello_var("charles")
+
+// multiple function type parameters
+
+function makeTuple<First, Second>(first: First, second: Second) {
+    return [ first, second] as const
+}
+
+let tuple = makeTuple(true, false)
+let tuple2 = makeTuple("charles", true)
+
+
+// console.log(tuple2)
+
+
+function makePair<Key, Value>(key: Key, value: Value) {
+    return { key, value }
+}
+
+let make_pair_1 = makePair("charles", true)
+
+// console.log(make_pair_1)
 
