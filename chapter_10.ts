@@ -90,3 +90,49 @@ let make_pair_1 = makePair("charles", true)
 
 // console.log(make_pair_1)
 
+makePair<string, number>("charles", 13)
+makePair<number, number>(34, 43)
+
+
+// an error here, since the it needs two arguments, not one
+// makePair<string>("charles")
+
+// generic interfaces
+interface Box<T> {
+    inside: T
+}
+
+let stringBox: Box<string> = {
+    inside: "charles"
+}
+
+// console.log(stringBox)
+
+let numberBox: Box<number> = {
+    inside: 123
+}
+
+// console.log(numberBox)
+
+
+// takes in a number and assigns it to a boolean.
+// this gives an error
+// type safety 101
+// let incorrectBox: Box<number> = {
+//     inside: False
+// }
+
+// console.log(incorrectBox)
+
+
+// fun fact -> arrays methods in typescript are a generic interface
+
+interface Array<T> {
+    pop(): T | undefined
+    
+    push(...items: T[]): number
+
+}
+
+
+// inferred generic interface types
