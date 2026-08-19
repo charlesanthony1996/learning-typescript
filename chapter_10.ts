@@ -152,6 +152,8 @@ let lastDate = getLast({
     value: new Date("03-06-1996")
 })
 
+console.log(lastDate)
+
 // inferred value type argument: string
 let lastFruit = getLast({
     next: {
@@ -162,8 +164,6 @@ let lastFruit = getLast({
 
 console.log(lastFruit)
 
-console.log(lastDate)
-
 // inferred value type argument: number
 // let lastMismatch = getLast({
 //     next: {
@@ -172,4 +172,12 @@ console.log(lastDate)
 //     value: false,
 // })
 
+// console.log(lastMismatch)
 
+interface CrateLike<T> {
+    contents: T
+}
+
+// let missingGeneric: CrateLike = {
+//     contents: "??"
+// }
