@@ -136,3 +136,40 @@ interface Array<T> {
 
 
 // inferred generic interface types
+
+interface LinkedNode<Value> {
+    next?: LinkedNode<Value>
+    value: Value
+}
+
+
+function getLast<Value>(node: LinkedNode<Value>): Value {
+    return node.next ? getLast(node.next) : node.value
+}
+
+
+let lastDate = getLast({
+    value: new Date("03-06-1996")
+})
+
+// inferred value type argument: string
+let lastFruit = getLast({
+    next: {
+        value: "banana",
+    },
+    value: "apple"
+})
+
+console.log(lastFruit)
+
+console.log(lastDate)
+
+// inferred value type argument: number
+// let lastMismatch = getLast({
+//     next: {
+//         value: 123
+//     },
+//     value: false,
+// })
+
+
