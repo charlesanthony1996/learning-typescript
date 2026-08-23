@@ -179,5 +179,3 @@ interface CrateLike<T> {
 }
 
 // let missingGeneric: CrateLike = {
-//     contents: "??"
-// }
