@@ -209,3 +209,21 @@ const storage = new Secret(12345, "luggage")
 console.log(storage.getValue(12345))
 // storage.getValue(12345)
 
+// explicit generic class types
+
+class CurriedCallback<Input> {
+    #callback: (input: Input) => void
+
+    constructor(callback: (input:Input) => void) {
+        this.#callback = (input: Input) => {
+            console.log("Input: ", input)
+            callback(input)
+        }
+    }
+
+    call(input: Input) {
+        this.#callback(input)
+    }
+}
+
+// type 
