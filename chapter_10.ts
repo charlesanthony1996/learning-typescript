@@ -179,3 +179,21 @@ interface CrateLike<T> {
 }
 
 // let missingGeneric: CrateLike = {
+<<<<<<< HEAD
+=======
+//     inside: "??"
+// }
+
+// generic classes
+
+class Secret<Key, Value> {
+    key: Key
+    value: Value
+
+    constructor(key: Key, value: Value) {
+        this.key = key
+        this.value = value
+    }
+}
+
+>>>>>>> 40392e6 (simple secret class)
