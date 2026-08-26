@@ -179,8 +179,6 @@ interface CrateLike<T> {
 }
 
 // let missingGeneric: CrateLike = {
-<<<<<<< HEAD
-=======
 //     inside: "??"
 // }
 
@@ -194,6 +192,20 @@ class Secret<Key, Value> {
         this.key = key
         this.value = value
     }
+
+    getValue(key: Key): Value | undefined {
+        return this.key === key ? this.value : undefined
+        // if (this.key === key) {
+        //     return this.value
+        // }
+    }
 }
 
->>>>>>> 40392e6 (simple secret class)
+
+const storage = new Secret(12345, "luggage")
+// console.log(storage)
+
+// console.log(storage.getValue(1987))
+console.log(storage.getValue(12345))
+// storage.getValue(12345)
+
