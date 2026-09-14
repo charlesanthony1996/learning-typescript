@@ -226,4 +226,73 @@ class CurriedCallback<Input> {
     }
 }
 
-// type 
+// type curriedcallback<string>
+new CurriedCallback((input: string) => {
+    console.log(input.length)
+})
+
+// type curriedcallback<unknown>
+new CurriedCallback((input) => {
+    // console.log(input.length)
+})
+
+
+// type curriedcallback<string>
+new CurriedCallback<string>((input) => {
+    console.log(input.length)
+})
+
+// new CurriedCallback<string>((input: boolean) => {
+
+// })
+
+// extending generic classes
+
+class Quote<T> {
+    lines: T
+
+    constructor(lines: T) {
+        this.lines = lines
+    }
+}
+
+class SpokenQuote extends Quote<string[]> {
+    speak() {
+        console.log(this.lines.join("\n"))
+    }
+}
+
+new Quote("The only real failure is the failure to try.").lines
+
+new Quote([4, 8, 15, 16, 23, 42]).lines
+
+new SpokenQuote([
+    "Greed is so destructive",
+    "It destroys everything"
+])
+
+
+console.log(SpokenQuote)
+
+class AttributedQuote<Value> extends Quote<Value> {
+    speaker: string
+
+    constructor(value: Value, speaker: string) {
+        super(value)
+        this.speaker = speaker
+    }
+}
+
+
+new AttributedQuote(
+    "Charles Anthony",
+    "the road to success is always under construction"
+)
+
+// implementing generic interfaces
+
+interface ActingCredit<Role> {
+    role: Role
+}
+
+class MoviePart implements 
