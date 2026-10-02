@@ -366,4 +366,32 @@ logger.instanceLog([1, 2, 3])
 // inferred onstatic type argument: boolean[]
 // BothLogger.staticLog([false, true])
 
-// explicit onstatic
+// explicit onstatic type argument: string
+// BothLogger.staticLog<string>("You cant change the music of your soul")
+
+// generic type aliases
+type Nullish<T> = T | null | undefined
+
+// generic type aliases are commonly used with functions to describe the type of a generic function
+
+type CreatesValue<Input, Output> = (input: Input) => Output
+
+let creator: CreatesValue<string, number>
+
+creator = text => text.length
+
+// type string is not assignable to type 'number'
+// creator = text => text.toUpperCase()
+
+// generic discriminated unions
+type Result<Data> = FailureResult | SucessfulResult<Data>
+
+interface FailureResult {
+    error: Error,
+    succeeded: false
+}
+
+interface SucessfulResult<Data> {
+    data: Data,
+    succeeded: true
+}
