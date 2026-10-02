@@ -304,5 +304,44 @@ class MoviePart implements ActingCredit<string> {
         this.role = role
         this.speaking = speaking
     }
-    
 }
+
+const part = new MoviePart("charles anthony", true)
+
+// console.log(part)
+
+// console.log(part.role)
+// console.log(part.speaking)
+
+// class IncorrectExtension implements ActingCredit<string> {
+//     role: boolean
+// }
+
+// method generics
+// class methods may declare their own generic types seperate from their class instance
+
+class CreatePairFactory<Key> {
+    key: Key
+
+    constructor(key: Key) {
+        this.key = key
+    }
+
+    createPair<Value>(value: Value) {
+        return { key: this.key, value }
+    }
+}
+
+const factory = new CreatePairFactory("role")
+
+// console.log(factory)
+
+const numberPair = factory.createPair(10)
+
+// console.log(numberPair)
+
+const stringPair = factory.createPair("Sophie")
+
+// console.log(stringPair)
+
+// static class generics
