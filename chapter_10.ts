@@ -289,10 +289,20 @@ new AttributedQuote(
     "the road to success is always under construction"
 )
 
+// page 195
 // implementing generic interfaces
 
 interface ActingCredit<Role> {
     role: Role
 }
 
-class MoviePart implements 
+class MoviePart implements ActingCredit<string> {
+    role: string
+    speaking: boolean
+    
+    constructor(role:string, speaking: boolean) {
+        this.role = role
+        this.speaking = speaking
+    }
+    
+}
