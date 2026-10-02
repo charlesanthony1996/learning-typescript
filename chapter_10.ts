@@ -345,3 +345,25 @@ const stringPair = factory.createPair("Sophie")
 // console.log(stringPair)
 
 // static class generics
+
+class BothLogger<OnInstance> {
+    instanceLog(value: OnInstance) {
+        console.log(value)
+        return value
+    }
+
+    // static staticLog<OnStatic>(value: OnStatic) {
+    //     let fromInstance: OnInstance
+
+    //     // it gives an error here
+    //     // static members cannot reference class type arguments here
+    // }
+}
+
+const logger = new BothLogger<number[]>
+logger.instanceLog([1, 2, 3])
+
+// inferred onstatic type argument: boolean[]
+// BothLogger.staticLog([false, true])
+
+// explicit onstatic
