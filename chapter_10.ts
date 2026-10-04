@@ -499,3 +499,24 @@ const others = get(roles, "others")
 // this is a missing prop
 // so this is an error
 // const missing = get(roles, "extras")
+
+
+// a different without using extends in the beginning
+function get2<T>(container: T, key: keyof T) {
+
+    return container[key]
+}
+
+
+const roles2 = {
+    favourite: "fargo",
+    others: ["almost famous", "burn after reading", "nomadland"]
+}
+
+const found = get2(roles, "favourite")
+
+// console.log(found)
+
+// promises
+
+// creating promises
