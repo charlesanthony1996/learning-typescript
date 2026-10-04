@@ -459,3 +459,20 @@ function inTheEnd<First, Second, Third = number, Fourth = string>() {
 // function inTheMiddle<First, Second = boolean, Third = number, Fourth>() {
 
 // }
+
+// constrained generic types
+
+interface WithLength {
+    length: number
+}
+
+function logWithLength<T extends WithLength>(input: T) {
+    console.log(`length: ${input.length}`)
+    return input
+}
+
+logWithLength("hello")
+logWithLength([true, false])
+
+logWithLength({ length: 123})
+
