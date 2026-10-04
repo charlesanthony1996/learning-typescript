@@ -476,3 +476,26 @@ logWithLength([true, false])
 
 logWithLength({ length: 123})
 
+// keyof and constrained type parameters
+
+function get<T, Key extends keyof T>(container: T, key: Key) {
+    
+
+    return container[key]
+}
+
+const roles = {
+    favourite: "fargo",
+    others: ["almost famous", "born after reading", "nomadland"]
+}
+
+const favourite = get(roles, "favourite")
+const others = get(roles, "others")
+
+// console.log(favourite)
+// console.log(others[1])
+
+
+// this is a missing prop
+// so this is an error
+// const missing = get(roles, "extras")
