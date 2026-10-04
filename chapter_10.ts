@@ -520,3 +520,21 @@ const found = get2(roles, "favourite")
 // promises
 
 // creating promises
+
+class PromiseLike2<Value> {
+    constructor(executor: (resolve: (value: Value) => void), reject: (reason: unknown) => void) {
+
+    }
+}
+
+
+const resolvesUnknown = new Promise((resolve) => {
+    setTimeout(() => resolve("Done!"), 1000)
+})
+
+const resolvesString = new Promise<string>((resolve) => {
+    setTimeout(() => resolve("Done"), 1000)
+})
+
+// console.log(resolvesString)
+// console.log(resolvesUnknown)
