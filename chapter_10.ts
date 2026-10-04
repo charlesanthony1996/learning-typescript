@@ -396,19 +396,30 @@ interface SucessfulResult<Data> {
     succeeded: true
 }
 
-function handleResult(result: Result<string>) {
-    if (result.succeeded) {
-        // type of result? successful
-        console.log(`we did it ${result.succeeded}`)
-    } else {
-        // type of result? failures result
-        console.error(`Awww ${result.error}`)
-    }
+// function handleResult(result: Result<string>) {
+//     if (result.succeeded) {
+//         // type of result? successful
+//         console.log(`we did it ${result.succeeded}`)
+//     } else {
+//         // type of result? failures result
+//         console.error(`Awww ${result.error}`)
+//     }
     
-    // property data does not exist for 'Result<string>'
-    // property data does not exist for 'Successful<string>'
-    return result.data
+//     // property data does not exist for 'Result<string>'
+//     // property data does not exist for 'Successful<string>'
+//     return result.data
 
-    // 
+//     // 
 
+// }
+
+// generic modifiers
+
+// generic defaults
+
+interface Quote<T = string> {
+    value: T
 }
+
+let explicit: Quote<number> = { value: 123 }
+
