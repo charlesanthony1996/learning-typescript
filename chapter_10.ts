@@ -521,20 +521,39 @@ const found = get2(roles, "favourite")
 
 // creating promises
 
-class PromiseLike2<Value> {
-    constructor(executor: (resolve: (value: Value) => void), reject: (reason: unknown) => void) {
+// class PromiseLike2<Value> {
+//     constructor(executor: (resolve: (value: Value) => void), reject: (reason: unknown) => void) {
 
-    }
-}
+//     }
+// }
 
 
-const resolvesUnknown = new Promise((resolve) => {
-    setTimeout(() => resolve("Done!"), 1000)
-})
+// const resolvesUnknown = new Promise((resolve) => {
+//     setTimeout(() => resolve("Done!"), 1000)
+// })
 
-const resolvesString = new Promise<string>((resolve) => {
-    setTimeout(() => resolve("Done"), 1000)
-})
+// const resolvesString = new Promise<string>((resolve) => {
+//     setTimeout(() => resolve("Done"), 1000)
+// })
 
 // console.log(resolvesString)
-// console.log(resolvesUnknown)
+// console.log(resolvesUnknown
+
+
+// const textEventually = new Promise<string>((resolve) => {
+//     setTimeout(() => resolve("Done"), 1000)
+// })
+
+// async functions
+
+async function lengthAfterSecond(text: String) {
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+}
+
+lengthAfterSecond("hello").catch().then()
+
+async function lengthImmediately(text: string) {
+    return text.length
+}
+
+lengthImmediately("charles").catch(p => console.log(p)).then(e => console.log(e, "error"))
