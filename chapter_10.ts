@@ -556,4 +556,24 @@ async function lengthImmediately(text: string) {
     return text.length
 }
 
-lengthImmediately("charles").catch(p => console.log(p)).then(e => console.log(e, "error"))
+// lengthImmediately("charles").catch(p => console.log(p)).then(e => console.log(e, "error"))
+
+// generic type
+
+function identity2<T>(arg: T): T{
+    return arg
+}
+
+interface T {
+    name: "charles"
+}
+
+identity2("charles")
+
+const a = identity2("x")
+const b = identity2(123)
+
+const getlen = <T,>(data: ReadonlyArray<T>) => data.length
+
+console.log(getlen([1, 2, 3]))
+console.log(getlen(["charles", "charles", "charles"]))
