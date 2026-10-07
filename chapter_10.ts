@@ -598,3 +598,11 @@ console.log(numberContainer.getItem())
 const stringContainer = new Container<string>("hello")
 console.log(stringContainer.getItem())
 
+// using generics
+
+// the golden rule of generics
+
+function loginput<Input extends string>(input: Input) {
+    console.log("hi", input)
+}
+
