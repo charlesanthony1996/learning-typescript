@@ -577,3 +577,24 @@ const getlen = <T,>(data: ReadonlyArray<T>) => data.length
 
 console.log(getlen([1, 2, 3]))
 console.log(getlen(["charles", "charles", "charles"]))
+
+// generic classes
+
+class Container<T> {
+    private item: T
+
+    constructor(item: T) {
+        this.item = item
+    }
+
+    getItem(): T {
+        return this.item
+    }
+}
+
+const numberContainer = new Container<number>(123)
+console.log(numberContainer.getItem())
+
+const stringContainer = new Container<string>("hello")
+console.log(stringContainer.getItem())
+
