@@ -627,3 +627,37 @@ const printlen2 = (...values: { length: number}[]):void => {
 
 printlen2([12, 3 , 33], ["wefr", "wer"], [2, 13, 12, 23])
 
+// higher order function inference
+declare function pipe<A extends any[], B, C>(
+    ab: (...args: A) => B,
+    bc: (b: B) => C,
+): (...args: A) => C
+
+declare function list2<T>(a: T): T[]
+declare function box2<V>(x:V): {value: V}
+
+// const listbox = pipe(list, box)
+// const boxlist = pipe(box, list)
+
+// this functionality makes type safe pointfree style programming easier, which is common in
+// functional programming
+
+function pipe2<A extends any[], B, C>(
+    ab : (...args: A) => B,
+    bc: (b: B) => C
+): (...args: A) => C {
+    return (...args) => bc(ab(...args))
+}
+
+function list<T>(a:T): T[] { return [a] }
+function box<V>(x:V): { value : V} { return { value : x }}
+
+const len = (s: string) => s.length
+const double = (n: number) => n * 2
+
+const lendouble = pipe2(len, double)
+
+// just doubling the length here
+console.log(lendouble("hello"))
+console.log(lendouble("charles"))
+
