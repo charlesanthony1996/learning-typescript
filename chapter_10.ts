@@ -661,3 +661,14 @@ const lendouble = pipe2(len, double)
 console.log(lendouble("hello"))
 console.log(lendouble("charles"))
 
+// generic contextual narrowing
+
+
+// when you want to narrow down the type of a generic parameter
+function process<T>(value: T): void {
+    if (typeof value === "string") {
+        console.log(value.length)
+    }
+
+
+}
