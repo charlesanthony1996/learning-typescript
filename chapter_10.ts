@@ -606,3 +606,5 @@ function loginput<Input extends string>(input: Input) {
     console.log("hi", input)
 }
 
+// generic constraints
+
