@@ -568,15 +568,15 @@ interface T {
     name: "charles"
 }
 
-identity2("charles")
+// identity2("charles")
 
 const a = identity2("x")
 const b = identity2(123)
 
 const getlen = <T,>(data: ReadonlyArray<T>) => data.length
 
-console.log(getlen([1, 2, 3]))
-console.log(getlen(["charles", "charles", "charles"]))
+// console.log(getlen([1, 2, 3]))
+// console.log(getlen(["charles", "charles", "charles"]))
 
 // generic classes
 
@@ -593,10 +593,10 @@ class Container<T> {
 }
 
 const numberContainer = new Container<number>(123)
-console.log(numberContainer.getItem())
+// console.log(numberContainer.getItem())
 
 const stringContainer = new Container<string>("hello")
-console.log(stringContainer.getItem())
+// console.log(stringContainer.getItem())
 
 // using generics
 
@@ -607,4 +607,23 @@ function loginput<Input extends string>(input: Input) {
 }
 
 // generic constraints
+
+const printlen = <T extends { length: number }>(value: T): void => {
+    console.log(value.length)
+}
+
+// printlen([1, 2, 3])
+// printlen("string")
+// printlen(["wwef", 123, "wefew"])
+// printlen({length: 10})
+
+// doesnt handle multiple. only one
+// printlen(["wef", "wefwe"], ["wef", "wefw"])
+
+// handling multiple arrays
+const printlen2 = (...values: { length: number}[]):void => {
+    values.forEach(v => console.log(v.length))
+}
+
+printlen2([12, 3 , 33], ["wefr", "wer"], [2, 13, 12, 23])
 
