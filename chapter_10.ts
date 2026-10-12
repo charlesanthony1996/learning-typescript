@@ -668,7 +668,11 @@ console.log(lendouble("charles"))
 function process<T>(value: T): void {
     if (typeof value === "string") {
         console.log(value.length)
+    } else if (typeof value === 'number') {
+        console.log(value.toFixed(2))
     }
-
-
 }
+
+process("hello")
+process(3.14159265)
+
